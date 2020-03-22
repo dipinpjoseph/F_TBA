@@ -4,7 +4,7 @@ import os
 from flask import Response
 
 @app.route('/')
-def index():    
+def index():
     data = {}
     data["title"] = "The Beginner's Arsenal"
     data["desc"] = "Home Page of The Beginner's Arsenal"
@@ -64,9 +64,3 @@ def vim_shortcuts():
 @app.route('/The-Elite-List-Home')
 def elite_list_home():
     return render_template('The-Elite-List-Home.html')
-
-    
-    
-    
-    
-    

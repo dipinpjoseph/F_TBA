@@ -10,23 +10,23 @@ function generate_template(){
     loadHead('<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>')
     loadHead('<link rel="icon" href="../img/logo.png">')
     loadHead('<style>body {font-family: "Times New Roman", Times, serif;}</style>')
-    document.getElementById("header_tag").innerHTML = '<header><div class="container-fluid"><h3 style="font-family: \'charm\', serif; "><small><a href="https://www.thebearsenal.com">TheBeArsenal</a></small></h3><hr style="background-color:#259fea"></div></header>'+
+    document.getElementById("header_tag").innerHTML = '<header><div class="container-fluid"><h3 style="font-family: \'charm\', serif; "><small><a href="/">TheBeArsenal</a></small></h3><hr style="background-color:#259fea"></div></header>'+
     '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>'+
     '<!-- TheBeArsenal_Apps_Head --><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3600373850128255" data-ad-slot="7156171146" data-ad-format="auto" data-full-width-responsive="true"></ins><script> (adsbygoogle = window.adsbygoogle || []).push({});</script>'
     document.getElementById("sidebar_list").innerHTML = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>'+
     '<!-- TheBeARsenal_Apps_Vertical_Above_Sidebar -->'+
     '<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3600373850128255" data-ad-slot="1355666669" data-ad-format="auto" data-full-width-responsive="true"></ins>'+
     '<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>'+
-    '<h4><a href="https://www.thebearsenal.com/apps/home" >Apps</a></h4>'+
+    '<h4><a href="/" >Apps</a></h4>'+
     '<hr style="background-color:#259fea"><ul id="sidebar_list" class="list-group">'+
-    '<li><a href="https://www.thebearsenal.com/apps/The-Elite-List-Home">The Elite List - Tech Handbook</a></li>'+
-    '<li><a href="https://www.thebearsenal.com/apps/NZ-PostCode-Finder">NZ Post Code Finder</a></li>'+
-    '<li><a href="https://www.thebearsenal.com/apps/QR-Code-Generator">QR Code Generator</a></li>'+
-    '<li><a href="https://www.thebearsenal.com/apps/Bar-Code-Generator">Bar Code Generator</a></li>'+
-    '<li><a href="https://www.thebearsenal.com/apps/Find-Permutation-and-Combination-Online">Permutation & Combination</a></li>'+
-    '<li><a href="https://www.thebearsenal.com/apps/Morse-Code-Generator">Morse Code Generator</a></li>'+
-    '<li><a href="https://www.thebearsenal.com/apps/Online-BMI-Calculator">BMI Calculator</a></li>'+
-    '<li><a href="https://www.thebearsenal.com/apps/Extract-Emails-From-Text.html">Email Extractor</a></li></ul>'
+    '<li><a href="The-Elite-List-Home">The Elite List - Tech Handbook</a></li>'+
+    '<li><a href="NZ-PostCode-Finder">NZ Post Code Finder</a></li>'+
+    '<li><a href="QR-Code-Generator">QR Code Generator</a></li>'+
+    '<li><a href="Bar-Code-Generator">Bar Code Generator</a></li>'+
+    '<li><a href="Find-Permutation-and-Combination-Online">Permutation & Combination</a></li>'+
+    '<li><a href="Morse-Code-Generator">Morse Code Generator</a></li>'+
+    '<li><a href="Online-BMI-Calculator">BMI Calculator</a></li>'+
+    '<li><a href="Extract-Emails-From-Text.html">Email Extractor</a></li></ul>'
     document.getElementById("social_plugins").innerHTML = '<div class="col-2"><a href="https://github.com/dipinpjoseph" target="_blank"><i class="fa fa-github" style="font-size:40px;"></i></a></div>'+
     '<div class="col-2"><a href="https://www.linkedin.com/in/dipinpjoseph/" target="_blank"><i class="fa fa-linkedin-square" style="font-size:40px;"></i></a></div>'+
     '<div class="col-2"><a href="https://twitter.com/thebearsenal" target="_blank"><i class="fa fa-twitter" style="font-size:40px;"></i></a></div>'+
@@ -43,11 +43,11 @@ function generate_template(){
     //load_ads()
 }
 function loadHead(data)
-{    
+{
     document.getElementsByTagName('head')[0].innerHTML += data
 }
 function load_ads()
-{    
+{
 	window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
 		gtag('js', new Date());
