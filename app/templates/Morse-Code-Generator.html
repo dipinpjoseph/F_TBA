@@ -3,7 +3,7 @@
 <head>
     <title>Text to Morse Code Converter Online</title>
     <meta name="description" content="Generate Morse Code Online">
-	<script src="../js/common.js"></script>        
+	<script src="{{ url_for('static', filename='js/common.js') }}"></script>
 	<script>
 		function morse_gen() {
 			let io_text = document.getElementById("io_data").value.toLowerCase().split('');

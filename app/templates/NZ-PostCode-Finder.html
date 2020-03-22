@@ -3,8 +3,8 @@
 <head>
     <title>Find New Zealand Post Codes Online</title>
 	<meta name="description" content="Find Postal Codes in New Zealand Suburbs">
-	<script type="text/javascript" src="../data/nz_postcodes.json"></script>
-	<script src="../js/common.js"></script>        
+	<script type="text/javascript" src="{{ url_for('static', filename='data/nz_postcodes.json') }}"></script>
+	<script src="{{ url_for('static', filename='js/common.js') }}"></script>
 	<script>
         let post_codes = JSON.parse(post_codes_nz);
 		function find_nz_postcode() {

@@ -3,7 +3,7 @@
 <head>
     <title>Online-BMI-Calculator</title>
     <meta name="description" content="BMI calculator online from height and weight">
-	<script src="../js/common.js"></script>        
+	<script src="{{ url_for('static', filename='js/common.js') }}"></script>
 	<script>
 		function bmi_calculator() {
 			let w = document.getElementById("weight").value
