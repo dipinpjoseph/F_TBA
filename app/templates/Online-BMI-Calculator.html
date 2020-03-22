@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Online-BMI-Calculator</title>
+    <meta name="description" content="BMI calculator online from height and weight">
+	<script src="../js/common.js"></script>        
+	<script>
+		function bmi_calculator() {
+			let w = document.getElementById("weight").value
+			let h = document.getElementById("height").value/100
+			let bmi = w/(h*h)
+			document.getElementById("result").innerHTML = "BMI Index = "+Math.round(bmi*1000)/1000;
+		}
+	</script>
+</head>
+<body style="">
+    <div class="container">
+		<br>
+        <div id="header_tag" class="row"></div>
+		<div class="row">
+			<div class="col-sm-8">
+
+				<h3><small>BMI Calculator</small> </h3>
+				<hr style="background-color:#259fea">
+				<p>BMI or Body Mass Index is a mathematical relationship between a person's weight and height. BMI measure indicates the health status of that particular person.</p>
+				<p>Formula for BMI - Weight(kgs)/sq. Height(m^2)</p>
+				<form>
+    				<div class="form-group col-sm-12">
+						<div class="row">
+							<div class="col-sm-4">
+      							<label for="height">Height in CMs:</label>
+				      			<input type="number" class="form-control" id="height">
+							</div>
+							<div class="col-sm-4">
+      							<label for="weight">Weight in KGs:</label>
+				      			<input type="number" class="form-control" id="weight">
+							</div>
+							<div class="col-sm-4">
+      							<br>
+				      			<button type="button" id="cal" class="btn  btn-primary" onclick="bmi_calculator();"> Calculate BMI</button>
+							</div>
+						</div>
+					</div>
+				</form>
+				<hr style="background-color:#259fea">
+				<div>
+					<h4>Result:</h4>
+					<p id="result"></p>
+				</div>		
+				<hr style="background-color:#259fea">
+				<div >
+					<h4>Check how healthy you are:</h4>
+					<p>
+						Below 18.5    -> UnderWeight <br>
+						18.5 - 24.9   -> Healthy <br>
+						25 - 29.9     -> OverWeight <br>
+						30 & Above    -> Obese
+					</p>
+				</div>
+				<hr style="background-color:#259fea">
+				<div id="social_plugins" class="row"></div>
+				<hr style="background-color:#259fea">
+			</div>
+			<div class="col-sm-1" style="border-left: 1px solid #259fea; "></div>
+			<div id="sidebar_list" class="col-sm-3"></div>
+		</div>	
+	</div>
+	
+    <footer id="page_footer" class="page-footer"></footer>
+</body>
+<script>
+	generate_template()
+</script>
+</html>

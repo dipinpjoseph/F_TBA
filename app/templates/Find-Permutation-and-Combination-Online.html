@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Find Permutation and Combination Online</title>
+	<meta name="description" content="Calculate Permutations and Combinations of two numbers online">
+	<script src="../js/common.js"></script>        
+	<script>
+		function perm_comb_cal() {
+            let n = document.getElementById("n_value").value
+            let r = document.getElementById("r_value").value
+            let n_fact = fact(n)
+            let r_fact = fact(r)
+            let nr_fact = fact(n-r)
+            document.getElementById("npr").innerHTML = "<li>Permutation (nPr): "+n_fact/nr_fact+"</li>"
+            document.getElementById("ncr").innerHTML = "<li>Combination (nCr): "+n_fact/(nr_fact*r_fact)+"</li>"
+		}
+        function fact(n) {
+            if(n==0){
+                return (1)
+            }
+            return ((n != 1) ? n * fact(n - 1) : 1);
+        }
+	</script>
+</head>
+<body style="">
+    <div class="container">
+		<br>
+        <div id="header_tag" class="row"></div>
+		<div class="row">
+			<div class="col-sm-8">
+
+				<h1><small><small>Permutation & Combination Finder</small></small></h1>
+				<hr style="background-color:#259fea">
+				<p>A small utility to calculate Permutation and Combination of two numbers. (using formulas nPr and nCr).</p>
+
+				<hr style="background-color:#259fea">
+                <h4><small> Input 2 Numbers:</small></h4>
+                <form>
+    				<div class="form-group col-sm-12">
+						<div class="row">
+							<div class="col-sm-4">
+      							<label for="n_value">Value for 'n':</label>
+				      			<input type="number" class="form-control" id="n_value">
+							</div>
+							<div class="col-sm-4">
+      							<label for="r_value">Value for 'r':</label>
+				      			<input type="number" class="form-control" id="r_value">
+							</div>
+							<div class="col-sm-4">
+      							<br>
+				      			<button type="button" id="cal" class="btn  btn-primary" onclick="perm_comb_cal();"> Calculate </button>
+							</div>
+						</div>
+					</div>
+				</form>
+
+                <hr style="background-color:#259fea">
+                <div class="row">
+                        <div  class="col-sm-6">
+                            <p id="npr"></p>
+                        </div>
+                        <div  class="col-sm-6">
+                            <p id="ncr"></p>
+                        </div>
+				</div>	
+
+                <hr style="background-color:#259fea">
+				<div id="social_plugins" class="row"></div>
+				<hr style="background-color:#259fea">
+			</div>
+			<div class="col-sm-1" style="border-left: 1px solid #259fea; "></div>
+			<div id="sidebar_list" class="col-sm-3"></div>
+		</div>	
+	</div>
+	
+    <footer id="page_footer" class="page-footer"></footer>
+</body>
+<script>
+	generate_template()
+</script>
+</html>

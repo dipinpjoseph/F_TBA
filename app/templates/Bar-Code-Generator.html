@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Generate Bar Code Online for Free</title>
+    <meta name="description" content="Online Bar Code Generator">
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-3600373850128255",
+            enable_page_level_ads: true
+        });
+    </script>
+	<script src="{{ url_for('static', filename='js/common.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.0/dist/JsBarcode.all.min.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+	<script>
+		function bar_code_generator() {
+            let ip_text = document.getElementById("ip_text").value
+            JsBarcode("#bar", ip_text);
+            document.getElementById("save_bar").innerHTML = '<button type="button"  class="btn  btn-primary" onclick="download_bar();"> Download</button>'
+
+		}
+        function download_bar(){
+            let link = document.createElement('a');
+            link.download = 'bar_code.png';
+            link.href = document.getElementById('bar').toDataURL()
+            link.click();
+        }
+	</script>
+</head>
+<body style="">
+    <div class="container">
+		<br>
+        <div id="header_tag" class="row"></div>
+		<div class="row">
+			<div class="col-sm-8">
+
+				<h1><small><small>Bar Code Generator</small></small></h1>
+				<hr style="background-color:#259fea">
+				<p>Bar Code is an encoded form of data representation. By varying the width and spacing of lines information is encoded.
+                    This barcode generator convert input string to corresponding Bar Code with the help of JsBarcode JS library. </p>
+
+                <hr style="background-color:#259fea">
+                
+                    <label for="ip_text">Input Text/Link :</label>
+                    <input type="text" class="form-control" id="ip_text">
+                <div class="">
+                        <br>
+                        <button type="button" id="cal" class="btn  btn-primary" onclick="bar_code_generator();"> Generate</button>
+                </div>
+                <div class="">
+                    <br>
+                    <canvas id="bar"></canvas>
+                    <div id="save_bar"></div>
+                </div>
+
+				<hr style="background-color:#259fea">
+				<div id="social_plugins" class="row"></div>
+				<hr style="background-color:#259fea">
+			</div>
+			<div class="col-sm-1" style="border-left: 1px solid #259fea; "></div>
+			<div id="sidebar_list" class="col-sm-3"></div>
+		</div>	
+	</div>
+	
+    <footer id="page_footer" class="page-footer"></footer>
+</body>
+<script>
+	generate_template()
+</script>
+</html>

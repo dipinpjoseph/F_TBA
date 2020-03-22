@@ -1,8 +1,193 @@
-<html>
-    <head>
-        <title>{{ title }}</title>
-    </head>
-    <body>
-        <h1>Hello, {{ user.username }}!</h1>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{{ data.title }}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ data.desc }}">
+    <meta name="author" content="Dipin P Joseph">
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Charm:700">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-33383432-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-33383432-3');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-3600373850128255",
+            enable_page_level_ads: true
+        });
+    </script>
+    <style>
+        body    {font-family: 'Times New Roman', Times, serif;}
+	</style>
+    <link rel="icon" href="{{ url_for('static', filename='img/logo.png') }}">
+</head>
+
+<body style="">
+    <div class="container">
+	<br>
+        <div class="row">
+		    <header>
+			    <div class="container-fluid">
+				    <h2 style="font-family: 'charm', serif; "><small>TheBeArsenal</small></h2>
+        			<hr style="background-color:#259fea">
+			    </div>
+		    </header>
+	    </div>
+        <div class="row">			
+        	<div class="col-12">
+            		<div class="offset-4 col-3">
+                		<img src="{{ url_for('static', filename='img/logo_big.png') }}" border="0" style="border-style: dashed; border-radius:50%; border-color:#259fea;" class="img-fluid" alt="Logo - The Beginner's Arsenal">
+            		</div>
+		    </div>	  
+	    </div>
+	    <div class="row">
+		    <div class="offset-2 col-8">
+                <p style="font-family: 'Times New Roman', Times, serif;" class="text-center">Welcome to <span style="font-family: 'charm', serif; ">
+                    The Beginner's Arsenal</span> foundation. The hub for Techincal Information and Services. </p>
+            </div>
+        </div>
+        <hr style="background-color:#259fea">
+        <div class="row">
+            <div class="col-sm-12">
+                <p style="font-family: 'Times New Roman', Times, serif;">The Beginner's Arsenal is an initiative by Dipin P Joseph to establish a portal
+                    consisting of tiny services that are often used. Being a Software Developer and a Data Science enthusiast, most of the articles and
+                    services will be related to these domains.
+                    You are welcome to utilize resources from this stock for free.
+                </p>
+                <p style="font-family: 'Times New Roman', Times, serif;">This project is in its initial stage, therefore criticisms are more invited than
+                    compliments. Thank you for checking this out.</p>
+            </div>
+        </div>
+        <hr style="background-color:#259fea">
+        <div class="row">
+            <div class="offset-sm-4">
+				<div class="col-6 float-left" >
+                    <img src="{{ url_for('static', filename='img/services.png') }}" class="img-fluid" alt="The Beginner's Arsenal Blog" width=100%>
+				</div>
+				<div class="col-6 float-right" >
+					<h2 style="font-family: 'charm', serif; "><b>Services</b></h2>
+                </div>
+            </div>
+		</div>
+		<br>
+		<div class="row container">
+            <p style="font-family: 'Times New Roman', Times, serif;">Services provided by Us,</p>
+            <div class="row col-sm-12">
+                    <ul class="col-sm-4">
+                        <li><a href="The-Elite-List-Home">The Elite List - Tech Handbook</a></li>
+                        <li><a href="NZ-PostCode-Finder">NZ Post Code Finder</a></li>
+                        <li><a href="QR-Code-Generator">QR Code Generator</a></li>
+                    </ul>
+                    <ul class="col-sm-4">
+                        <li><a href="Bar-Code-Generator">Bar Code Generator</a></li>
+                        <li><a href="Online-BMI-Calculator">BMI Calculator</a></li>
+                        <li><a href="Find-Permutation-and-Combination-Online">Permutation & Combination</a></li>
+                    </ul>
+                    <ul class="col-sm-4">
+                        <li><a href="Morse-Code-Generator">Morse Code Generator</a></li>
+                        <li><a href="Extract-Emails-From-Text.html">Email Extractor</a></li>
+
+                    </ul>
+            </div>
+	    </div>
+        <hr style="background-color:#259fea">
+        
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="">
+                        <div class="col-6 float-left" >
+                            <img src="{{ url_for('static', filename='img/blog.png') }}" class="img-fluid" alt="The Beginner's Arsenal Blog" width=100%>
+                        </div>
+                        <div class="col-6 float-right" >
+                            <h2 style="font-family: 'charm', serif; "><b>The Blog</b></h2>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row container ">
+                    <p class="">Articles and Tutorials related to various technologies will be posted here.<br>
+                            The Blog - <a href="https://blog.thebearsenal.com">blog.thebearsenal.com</a></p>
+                </div>
+            </div>
+            <hr style="background-color:#259fea">
+            
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="">
+                        <div class="col-6 float-left" >
+                            <img src="{{ url_for('static', filename='img/archive.jpg') }}" class="img-fluid" alt="The Beginner's Arsenal Blog" width=100%>
+                        </div>
+                        <div class="col-6 float-right" >
+                            <h2 style="font-family: 'charm', serif; "><b>Archive</b></h2>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row container ">
+                    <p class="">A pretty old blog which has some useful stuff posted.<br>
+                            The Archive - <a href="https://archive.thebearsenal.com">archive.thebearsenal.com</a></p>
+                </div>
+            </div>
+        </div>
+        <hr style="background-color:#259fea">        
+
+        <div class="row">
+            <div class="col-2">
+                <a href="https://github.com/dipinpjoseph" target="_blank"><i class="fa fa-github"
+                        style="font-size:40px;"></i></a>
+            </div>
+            <div class="col-2">
+                <a href="https://www.linkedin.com/in/dipinpjoseph/" target="_blank"><i class="fa fa-linkedin-square"
+                        style="font-size:40px;"></i></a>
+            </div>
+            <div class="col-2">
+                <a href="https://twitter.com/thebearsenal" target="_blank"><i class="fa fa-twitter"
+                        style="font-size:40px;"></i></a>
+            </div>
+            <div class="col-2">
+                <a href="https://www.instagram.com/thebearsenal/" target="_blank"><i class="fa fa-instagram"
+                        style="font-size:40px;"></i></a>
+            </div>
+            <div class="col-2">
+                <a href="https://www.facebook.com/TheBeArsenal/" target="_blank"><i class="fa fa-facebook-square"
+                        style="font-size:40px;"></i></a>
+            </div>
+            <div class="col-2">
+                <a href="https://www.youtube.com/channel/UCvfjHPhi9Db_tFZKIbje2zw/" target="_blank"><i
+                        class="fa fa-youtube-square" style="font-size:40px;"></i></a>
+            </div>
+        </div>
+        <hr style="background-color:#259fea">
+
+    </div>
+    <footer class="page-footer">
+        <div class="footer-copyright text-center py-3" style="font-family: 'Times New Roman', Times, serif;">© 2019 Copyright:
+            <a href="https://www.thebearsenal.com" style="font-family: 'Times New Roman', Times, serif;"> The Beginner's Arsenal</a>
+        </div>
+    </footer>
+    </div>
+</body>
+
 </html>

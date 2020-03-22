@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Useful VIM Commands</title>
+    <meta name="description" content="VIM shorthands and commands">
+	<script src="../js/common.js"></script>        
+	<script src="../js/elite_list.js"></script>    
+    <script type="text/javascript" src="../data/vim_commands.json"></script>    
+
+</head>
+<body style="">
+    <div class="container">
+		<br>
+        <div id="header_tag" class="row"></div>
+		<div class="row">
+			<div class="col-sm-8">
+
+				<h1><small><small>Useful VIM Commands</small></small></h1>
+				<hr style="background-color:#259fea">
+				<p>Checkout some productivity hacks with VIM editor.</p>
+
+				<hr style="background-color:#259fea">
+				<div id="elite_list"></div>
+				<hr style="background-color:#259fea">
+				<div  id="social_plugins" class="row"></div>
+				<hr style="background-color:#259fea">
+			</div>
+			<div class="col-sm-1" style="border-left: 1px solid #259fea; "></div>
+			<div id="sidebar_list" class="col-sm-3"></div>
+		</div>	
+	</div>
+	
+    <footer  id="page_footer" class="page-footer"></footer>
+</body>
+<script>
+	generate_template()
+	let commands_list = JSON.parse(vim_commands);
+    generate_elite_list(commands_list)
+</script>
+</html>

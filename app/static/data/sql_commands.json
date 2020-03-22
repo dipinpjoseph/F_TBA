@@ -1,0 +1,6 @@
+sql_commands='[{"Topic" : "How to replace Column Value in SQL?", "Command" : "update table_name set column = \'newvalue\' where column = \'some thing\'", "Comment" : "The command \'set\' fills new value based on condition given in \'where\'"}]'
+
+
+
+
+
