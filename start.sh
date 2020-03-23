@@ -1,4 +1,4 @@
 #!/bin/bash
-source venv/bin/activate
+source ../venv/bin/activate
 export FLASK_APP=f_tba.py
 
