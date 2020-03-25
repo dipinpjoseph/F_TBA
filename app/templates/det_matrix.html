@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <form action="" method="post" novalidate>
+        {{ gen_form.hidden_tag() }}
+        <p>
+        	{{ gen_form.n_val.label }}
+		<input id="n_val" name="n_val" required type="number" value="{{ data.n_val }}" class="form-control col-sm-4">
+		<br>
+	        <input id="gen_layout" name="gen_layout" type="submit" value="Generate Layout" class="btn btn-primary">
+	</p>
+	<p>
+	{% if data.n_val %}
+		<p>Please input matrix by row separating column values by comma.</p>
+		{% for i in range(data.n_val) %}
+			<input id="ip_{{ i }}" name="ip_{{ i }}" type="text" value="" class="form-control col-sm-4" required>
+			<br>
+  		{% endfor %}
+	        	<input id="det_cal" name="det_cal" type="submit" value="Calculate Determinant" class="btn btn-primary">
+	{% endif %}
+	{% if data.det != -1 %}
+		<br>
+		<p>Determinant of the given matrix : {{ data.det }}</p>
+	{% endif %}
+	</p>
+    </form>
+
+
+{% endblock %}

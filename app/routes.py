@@ -1,11 +1,11 @@
 from app import app
 from flask import render_template
-import os
 from flask import Response,request
-import numpy as np
+import os
 
 @app.route('/')
 def index():
+    print(os.getcwd())
     data = {}
     data["title"] = "The Beginner's Arsenal"
     data["desc"] = "Home Page of The Beginner's Arsenal"
@@ -14,22 +14,27 @@ def index():
 
 @app.route('/find-determinant-of-matrix', methods=['GET','POST'])
 def det_mat():
+    from modules import DetMat
+    gen_form = DetMat.GenForm()
     data = {}
     data["title"] = "Online Matrix Determinant Calculator"
     data["desc"] = "Perform matrix operation - determinant"
     data["app"] = "Determinant of Matrix"
-    data["n_val"] = 2
+    data["n_val"] = 0
+    data["det"] = -1
     if request.method == "POST":
-        if 'n_val' in request.form:
-            data["n_val"] = int(request.form.get('n_val'))
-        if data["n_val"] > 0:
-            mat =[]
-            for i in range(data["n_val"]):
-                e_row = (request.form.get('ip_'+str(i)))
-                e_row = [int(s) for s in e_row.split(',')]
-                mat.append(e_row)
-            return render_template('det_matrix.html', data=data)
-    return render_template('det_matrix.html', data=data)
+        if gen_form.validate_on_submit():
+            data["n_val"] = gen_form.n_val.data
+            if "ip_0" in request.form:
+                mat =[]
+                for i in range(data["n_val"]):
+                    e_row = request.form.get('ip_'+str(i))
+                    e_row = [int(s) for s in e_row.split(',')]
+                    mat.append(e_row)
+                import numpy as np
+                data["det"] = np.linalg.det(mat)
+        return render_template('det_matrix.html', data=data, gen_form=gen_form)
+    return render_template('det_matrix.html', data=data, gen_form=gen_form)
 
 @app.route('/ads.txt')
 def ads_google():
