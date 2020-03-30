@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <form action="" method="post">
+
+	<br>
+        <label for="topic">Topic : </label>
+	<input id="topic" name="topic" required type="text" class="form-control">
+	<br>
+        <label for="sol">Solution : </label>
+	<input id="sol" name="sol" required type="text" class="form-control">
+	<br>
+        <label for="comment">Comment : </label>
+	<input id="comment" name="comment" required type="text" class="form-control">
+	<br>
+        <label for="cat">Category : </label>
+	<input id="cat" name="cat" required type="text" class="form-control col-sm-4">
+	<br>
+
+        <input id="update" name="update" type="submit" value="Add To Elite List" class="btn btn-primary">
+
+    </form>
+
+
+{% endblock %}
+

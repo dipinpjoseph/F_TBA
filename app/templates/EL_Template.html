@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+	{% for each in con %}
+
+		<div class="card">
+			<div class="card-header  bg-dark text-white">
+				Topic: {{ each.topic }}
+			</div>
+			<div class="card-body">
+				" {{ each.sol }} "
+                	</div>
+			<div class="card-footer  bg-light ">
+				Comment: {{ each.comment }}
+                    	</div>
+		</div>
+		<br>
+
+	{% endfor %}
+
+
+{% endblock %}
+
