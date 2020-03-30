@@ -6,13 +6,13 @@
 
 		<div class="card">
 			<div class="card-header  bg-dark text-white">
-				Topic: {{ each.topic }}
+				Topic: {% autoescape false %} {{ each.topic }} {% endautoescape %}
 			</div>
 			<div class="card-body">
-				" {{ each.sol }} "
+				" {% autoescape false %} {{ each.sol }} {% endautoescape %}"
                 	</div>
 			<div class="card-footer  bg-light ">
-				Comment: {{ each.comment }}
+				Comment: {% autoescape false %} {{ each.comment }} {% endautoescape %}
                     	</div>
 		</div>
 		<br>
