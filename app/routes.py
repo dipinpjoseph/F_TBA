@@ -3,6 +3,7 @@ from flask import render_template
 from flask import Response,request
 import os 
 from models import E_List, db
+from modules import utils
 
 @app.route('/')
 def index():
@@ -39,7 +40,7 @@ def det_mat():
 
 @app.route('/Update_Elite_List', methods=['GET','POST'])
 def update_elite_list():
-    cat = ['Linux', 'SQL', 'Python', 'VIM']
+    cat = ['Linux', 'SQL', 'Python', 'VIM','Spark','Raspberry-Pi']
     data = {}
     data["title"] = "Elite List Updation"
     data["desc"] = "Portal to update Elite List"
@@ -66,6 +67,14 @@ def robots_dot_txt():
 def ads_google():
     return app.send_static_file("ads.txt")
 
+@app.errorhandler(404)
+def page_not_found(e):
+    data = {}
+    data["title"] = "Page not found | TheBeArsenal"
+    data["desc"] = "The requested page is not present in the application"
+    data["app"] = "Page Not Found"
+    return render_template('404.html',data=data), 404
+
 @app.route('/QR-Code-Generator')
 def qr_code_gen():
     return render_template("QR-Code-Generator.html")
@@ -82,14 +91,19 @@ def extract_email():
 def perm_comb():
     return render_template('Find-Permutation-and-Combination-Online.html')
 
-@app.route('/Frequent-Linux-Commands-List')
-def freq_linux_cmds():
+@app.route('/The-Elite-List-Home')
+def el_home():
     data = {}
-    data["title"] = "Linux Tips and Tricks"
-    data["desc"] = "Linux hacks"
-    data["app"] = "Linux - The Elite List"
-    con = E_List.query.filter_by(cat='Linux')
-    return render_template('EL_Template.html', data=data, con=con)
+    data["title"] = "The Elite List Home"
+    data["desc"] = "Homepage for all technical handbooks"
+    data["app"] = "The Elite List | Home"
+    return render_template('EL_Home.html', data=data)
+
+@app.route('/EL/<list_cat>')
+def el_gen(list_cat):
+    con = E_List.query.filter_by(cat=list_cat)
+    return render_template('EL_Template.html', data=utils.pre_load(list_cat, list_cat+" Tips, Errors and Solutions", list_cat+" - The Elite List"), con=con)
+
 
 @app.route('/Morse-Code-Generator')
 def morse_code_gen():
@@ -102,33 +116,6 @@ def nz_postcode_finder():
 @app.route('/Online-BMI-Calculator')
 def bmi_cal():
     return render_template('Online-BMI-Calculator.html')
-
-@app.route('/python-tips-and-tricks')
-def python_tips():
-    data = {}
-    data["title"] = "Python Shortcuts"
-    data["desc"] = "Python Errors and Solutions"
-    data["app"] = "Python - The Elite List"
-    con = E_List.query.filter_by(cat='Python')
-    return render_template('EL_Template.html', data=data, con=con)
-
-@app.route('/SQL-Commands-List')
-def sql_cmds():
-    data = {}
-    data["title"] = "SQL Commands Examples"
-    data["desc"] = "SQL Tips and Tricks"
-    data["app"] = "SQL - The Elite List"
-    con = E_List.query.filter_by(cat='SQL')
-    return render_template('EL_Template.html', data=data, con=con)
-
-@app.route('/vim-useful-shortcuts')
-def vim_shortcuts():
-    data = {}
-    data["title"] = "VIM Examples"
-    data["desc"] = "VIM Shortcuts"
-    data["app"] = "VIM - The Elite List"
-    con = E_List.query.filter_by(cat='VIM')
-    return render_template('EL_Template.html', data=data, con=con)
 
 @app.route('/The-Elite-List-Home')
 def elite_list_home():

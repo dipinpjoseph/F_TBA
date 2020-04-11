@@ -11,4 +11,11 @@
 </url>
 {% endfor %}
 
+{% for url in dynamic_urls %}
+<url>
+  <loc>{{ url["loc"] }}</loc>
+  <lastmod>{{ url["lastmod"] }}</lastmod>
+</url>
+{% endfor %}
+
 </urlset>

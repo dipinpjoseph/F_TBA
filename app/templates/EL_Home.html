@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+	<p>Landing Page for available Technical Handbooks.</p>
+	<hr style="background-color:#259fea">
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="card">
+				<a href="EL/SQL"><img class="card-img-top img-fluid" src="{{ url_for('static', filename='img/elite_list/sql_commands.jpg') }}" alt="SQL Commands"></a>
+				<div class="card-footer"><a href="EL/SQL">SQL</a></div>
+			</div>
+			<br>
+		</div>
+		<div class="col-sm-4">	
+			<div class="card">
+				<a href="EL/Linux"><img class="card-img-top img-fluid" src="{{ url_for('static', filename='img/elite_list/linux_commands.jpg') }}" alt="Linux Tips and Hacks"></a>
+				<div class="card-footer"><a href="EL/Linux">Linux</a></div>
+		  	</div>
+			<br>
+		</div>
+ 		<div class="col-sm-4">
+			<div class="card">
+				<a href="EL/Python"><img class="card-img-top img-fluid" src="{{ url_for('static', filename='img/elite_list/python_short_notes.jpg') }}" alt="Python Tips and Tricks"></a>
+				<div class="card-footer"><a href="EL/Python">Python</a></div>
+			 </div>
+			 <br>
+		</div> 
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="card">
+				<a href="EL/VIM"><img class="card-img-top img-fluid" src="{{ url_for('static', filename='img/elite_list/vim.jpg') }}" alt="VIM shortcuts"></a>
+				<div class="card-footer"><a href="EL/VIM">VIM</a></div>
+			</div>
+			<br>
+		</div>
+		<div class="col-sm-4">
+			<div class="card">
+				<a href="EL/Spark"><img class="card-img-top img-fluid" src="{{ url_for('static', filename='img/elite_list/Spark.jpg') }}" alt="Spark-Shorthands"></a>
+				<div class="card-footer"><a href="EL/Spark">Spark</a></div>
+			</div>
+			<br>
+		</div>	
+		<div class="col-sm-4">
+			<div class="card">
+				<a href="EL/Raspberry-Pi"><img class="card-img-top img-fluid" src="{{ url_for('static', filename='img/elite_list/Raspberry-Pi.jpg') }}" alt="EL/Raspberry-Pi"></a>
+				<div class="card-footer"><a href="EL/Raspberry-Pi">Raspberry Pi</a></div>
+			</div>
+			<br>
+		</div>	
+	</div> 
+
+{% endblock %}
+	

@@ -26,7 +26,7 @@ function generate_template(){
     '<li><a href="Find-Permutation-and-Combination-Online">Permutation & Combination</a></li>'+
     '<li><a href="Morse-Code-Generator">Morse Code Generator</a></li>'+
     '<li><a href="Online-BMI-Calculator">BMI Calculator</a></li>'+
-    '<li><a href="Extract-Emails-From-Text.html">Email Extractor</a></li></ul>'
+    '<li><a href="Extract-Emails-From-Text">Email Extractor</a></li></ul>'
     document.getElementById("social_plugins").innerHTML = '<div class="col-2"><a href="https://github.com/dipinpjoseph" target="_blank"><i class="fa fa-github" style="font-size:40px;"></i></a></div>'+
     '<div class="col-2"><a href="https://www.linkedin.com/in/dipinpjoseph/" target="_blank"><i class="fa fa-linkedin-square" style="font-size:40px;"></i></a></div>'+
     '<div class="col-2"><a href="https://twitter.com/thebearsenal" target="_blank"><i class="fa fa-twitter" style="font-size:40px;"></i></a></div>'+

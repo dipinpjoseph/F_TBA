@@ -5,11 +5,11 @@
 	{% for each in con %}
 
 		<div class="card">
-			<div class="card-header  bg-dark text-white">
-				Topic: {% autoescape false %} {{ each.topic }} {% endautoescape %}
+			<div class="card-header  bg-dark text-white" id={{ each.topic | replace(" ","-") }}>
+				<h2><small><small> {% autoescape false %} {{ each.topic }} {% endautoescape %} </small></small></h2>
 			</div>
 			<div class="card-body">
-				" {% autoescape false %} {{ each.sol }} {% endautoescape %}"
+				Solution: <br>{% autoescape false %} {{ each.sol }} {% endautoescape %}
                 	</div>
 			<div class="card-footer  bg-light ">
 				Comment: {% autoescape false %} {{ each.comment }} {% endautoescape %}
