@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+	<script>
+		function extract() {
+			let f1=0
+			let io_text = document.getElementById("io_data").value;
+			let io_array = io_text.split(/\s+/g);
+			document.getElementById("email_op").innerHTML  = ""
+			for (let each of io_array){
+				console.log(each)
+				if(validate_email(each)){
+					f1=1
+					document.getElementById("email_op").innerHTML += each+"<br>"
+				}
+			}
+			if(f1==0){
+				document.getElementById("email_op").innerHTML  = "None"
+			}
+
+		}
+		function validate_email(email)
+		{
+    			let re = /\S+@\S+\.\S+/;
+    			return re.test(email);
+		}
+	</script>
+	<p>Dealing with unformatted text data is always time consuming. With the help of this application you can extract contact details like Emails from a piece of text.</p>
+
+	<hr style="background-color:#259fea">
+        <div class="form-group">
+        	<label for="io_data"><h4> Text Input:</h4></label>
+                <textarea class="form-control" id="io_data" rows="6"></textarea>
+     	</div>
+        <div class="form-group">
+        	<button type="button" id="start" class="btn btn-primary" onclick="extract();"> Extract</button>
+     	</div>
+        <hr style="background-color:#259fea">
+        <h4>Emails Found:</h4>
+        <p id="email_op"></p>
+
+{% endblock %}
+

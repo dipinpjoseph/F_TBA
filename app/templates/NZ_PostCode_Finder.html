@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+	<script type="text/javascript" src="{{ url_for('static', filename='data/nz_postcodes.json') }}"></script>
+
+	<script>
+        	let post_codes = JSON.parse(post_codes_nz);
+		function find_nz_postcode() {
+            		let ip_text = document.getElementById("addr").value.toLowerCase().trim()
+            		document.getElementById("result").innerHTML  = ""
+            		post_code_result = "<hr style='background-color:#259fea'><h4><small>Mapped Post Codes: </small></h4>" + "<table class='table table-striped'><thead><tr><th>Street</th><th>Suburb</th><th>Post Code</th><th>Region</th></tr></thead><tbody>"
+			for (let each of post_codes){
+				if (each.suburb.trim().toLowerCase().indexOf(ip_text) > -1 || each.street.trim().toLowerCase().indexOf(ip_text) > -1){ 
+					post_code_result += "<tr><td>"+each.street+"</td><td>"+each.suburb+"</td><td>"+each.postcode+"</td><td>"+each.region +"</td></tr>"
+                		}
+			}
+            		document.getElementById("result").innerHTML  += post_code_result + "</tbody></table>"
+		}
+	</script>
+
+	<p>A postal code is a numeric given to identify each geographic location of the country. This number will be unique and can be utilized for purposes like delivering goods and letters.	<br>This tool will help you to find postcode of your desired location. You may search by  Street or Suburb.</p>
+	<hr style="background-color:#259fea">
+       	<label for="addr">Start typing: </label>
+        <div class="row">
+		<div class="col-sm-6">
+                        <input type="text" class="form-control" id="addr">
+		</div>
+		<div class="col-sm-4">
+			<button type="button" id="post_trigger" class="btn  btn-primary" onclick="find_nz_postcode();">Find Postcode</button>
+		</div>
+    	</div>
+	<div id="result"></div>
+
+{% endblock %}
+

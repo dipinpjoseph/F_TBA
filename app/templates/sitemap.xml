@@ -4,18 +4,89 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-{% for url in static_urls %}
-<url>
-  <loc>{{ url["loc"] }}</loc>
-</url>
-{% endfor %}
 
-{% for url in dynamic_urls %}
 <url>
-  <loc>{{ url["loc"] }}</loc>
-  <lastmod>{{ url["lastmod"] }}</lastmod>
+  <loc>https://www.thebearsenal.com/</loc>
+  <lastmod>2020-04-11T07:57:12+00:00</lastmod>
+  <priority>1.00</priority>
 </url>
-{% endfor %}
+<url>
+  <loc>https://www.thebearsenal.com/The-Elite-List-Home</loc>
+  <lastmod>2020-04-11T07:57:12+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.thebearsenal.com/NZ-PostCode-Finder</loc>
+  <lastmod>2020-04-11T07:57:12+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.thebearsenal.com/QR-Code-Generator</loc>
+  <lastmod>2020-04-11T07:57:12+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.thebearsenal.com/Bar-Code-Generator</loc>
+  <lastmod>2020-04-11T07:57:12+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.thebearsenal.com/Online-BMI-Calculator</loc>
+  <lastmod>2020-04-11T07:57:12+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.thebearsenal.com/Find-Permutation-and-Combination-Online</loc>
+  <lastmod>2020-04-11T07:57:12+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.thebearsenal.com/Morse-Code-Generator</loc>
+  <lastmod>2020-04-11T07:57:12+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.thebearsenal.com/Extract-Emails-From-Text</loc>
+  <lastmod>2020-04-11T07:57:12+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.thebearsenal.com/find-determinant-of-matrix</loc>
+  <lastmod>2020-04-11T07:57:12+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.thebearsenal.com/EL/SQL</loc>
+  <lastmod>2020-04-11T07:57:12+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.thebearsenal.com/EL/Linux</loc>
+  <lastmod>2020-04-11T07:57:12+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.thebearsenal.com/EL/Python</loc>
+  <lastmod>2020-04-11T07:57:12+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.thebearsenal.com/EL/VIM</loc>
+  <lastmod>2020-04-11T07:57:12+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.thebearsenal.com/EL/Spark</loc>
+  <lastmod>2020-04-11T07:57:12+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.thebearsenal.com/EL/Raspberry-Pi</loc>
+  <lastmod>2020-04-11T07:57:12+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
 
 </urlset>
