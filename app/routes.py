@@ -70,7 +70,7 @@ def el_gen(list_cat):
 
 @app.route('/Update-Elite-List', methods=['GET','POST'])
 def update_elite_list():
-    cat = ['Linux', 'SQL', 'Python', 'VIM','Spark','Raspberry-Pi']
+    cat = ['R','Linux', 'SQL', 'Python', 'VIM','Spark','Raspberry-Pi']
     data = utils.pre_load("Elite List Updation","Portal to update Elite List","Elite List Update")
     if request.method == "POST":
         cat = request.form.get('cat')
