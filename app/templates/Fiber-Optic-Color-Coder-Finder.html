@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Fiber Optic Color Code Finder</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script>
+data_ltf = {"6F_FTTX":"3_2","12F_FTTX":"6_2","24F":"3_8","48FI":"6_8","48F_FTTX":"8_6","96F_FTTX_ESI":"8_12"}
+cc_array = ["Blue", "Orange", "Green", "Brown", "Slate", "White", "Red", "Black", "Yellow", "Violet", "Pink", "Aqua"]
+let ftype = ""
+let ltftype = ""
+function fccf_logic(){
+}
+function ftypeset(val){
+	ftype = val
+	document.getElementById('mirage').style.display = 'none'
+	document.getElementById(ftype+'_ID').style.display = 'block'
+}
+function ltftypeset(val){
+	ltftype = val
+	document.getElementById('LTF_ID').style.display = 'none'
+	document.getElementById('LTF_CC').style.display = 'block'
+
+}
+function ltf_cc(){
+	num = document.getElementById('LTF_NUM').value
+	t_f_detials = data_ltf[ltftype]
+	total_num = ltftype.split("F")[0]
+	t_num = t_f_detials.split("_")[0]
+	f_num = t_f_detials.split("_")[1]
+
+	t_color = Math.floor(num/f_num)
+	f_color = num % f_num 
+	if (f_color == 0){
+		f_color = f_num
+	}else{
+		t_color+=1
+	}
+	document.getElementById('LTF_RESULT').innerHTML = "<br><br><p>Tube Color = "+cc_array[t_color-1]+"</p>"
+	document.getElementById('LTF_RESULT').innerHTML += "<br><p>Fiber Color = "+cc_array[f_color-1]+"</p>"
+
+}
+
+</script>
+<style>
+body {
+  font-family: "Times New Roman", Times, serif;
+}
+
+</style>
+</head>
+<body onload="fccf_logic()">
+
+<div class="container" id="mirage">
+	<div class="page-header" style="text-align:center;">
+	    <h1>Fiber Optic Color Code Finder</h1>
+	    <p>Designed by Aby Thomas & Dipin P Joseph</p>
+		<br>
+	</div>
+	<div class="col-sm-12">
+		<br>
+ 	    <p>Select Fiber Type;</p><br><br>
+		<div class="col-md-4 text-center"> 
+			<button type="button" class="btn btn-primary col-sm-6 btn-block" value="LTF" onclick="ftypeset(this.value);">Loose Tube Fiber</button>
+		</div>
+		<br><br>
+		<div class="col-md-4 text-center"> 
+			<button type="button" class="btn btn-primary col-sm-6 btn-block" value="RF" onclick="ftypeset(this.value);">Ribbon Fiber</button>
+		</div>
+    </div>  
+</div>
+
+<div class="container" id="LTF_ID" style="display:none;">
+	<br><br>
+	<p>Select Fiber Type;</p>
+	<br>
+	<ul class="list-group">
+  		<li class="list-group-item col-md-4"><button type="button" class="btn btn-primary btn-block" value="6F_FTTX" onclick="ltftypeset(this.value);">6F FTTX</button></li>
+  		<li class="list-group-item col-md-4"><button type="button" class="btn btn-primary btn-block" value="12F_FTTX" onclick="ltftypeset(this.value);">12F FTTX</button></li>
+  		<li class="list-group-item col-md-4"><button type="button" class="btn btn-primary btn-block" value="24F" onclick="ltftypeset(this.value);">24F</button></li>
+  		<li class="list-group-item col-md-4"><button type="button" class="btn btn-primary btn-block" value="48FI" onclick="ltftypeset(this.value);">48F Intracity</button></li>
+  		<li class="list-group-item col-md-4"><button type="button" class="btn btn-primary btn-block" value="48F_FTTX" onclick="ltftypeset(this.value);">48F FTTX</button></li>
+  		<li class="list-group-item col-md-4"><button type="button" class="btn btn-primary btn-block" value="96F_FTTX_ESI" onclick="ltftypeset(this.value);">96F FTTX/ESI</button></li>
+
+	</ul> 
+</div>
+
+<div class="container" id="LTF_CC" style="display:none;">
+	<br><br>
+	<p>Enter a number;</p>
+	<br>
+	<div class="form-group">
+    	<label for="LTF_NUM">Number:</label>
+	    <input type="number" class="form-control" id="LTF_NUM"><br>
+		<button type="button" class="btn btn-primary col-sm-6 btn-block" onclick="ltf_cc();">Find Color Codes</button>
+    </div>
+	<div id="LTF_RESULT">
+	</div>
+</div>
+
+<div class="container" id="RF_ID" style="display:none;">
+	<div class="page-header" style="text-align:center;">
+	    <h1>Fiber Optic Color Code Finder</h1>
+	    <p>Designed by Aby Thomas & Dipin P Joseph</p>
+		<br>
+	</div>
+
+</div>
+
+</body>
+</html>
+
+
+
+

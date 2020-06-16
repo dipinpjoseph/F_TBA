@@ -107,5 +107,6 @@ def det_mat():
         return render_template('Det_Matrix.html', data=data, gen_form=gen_form)
     return render_template('Det_Matrix.html', data=data, gen_form=gen_form)
 
-
-
+@app.route('/Fiber-Optic-Color-Code-Finder')
+def focc_finder():
+    return render_template('Fiber-Optic-Color-Coder-Finder.html')
