@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template
+from flask import render_template, flash
 from flask import Response,request
 import os 
 from models import E_List, db
@@ -98,10 +98,10 @@ def det_mat():
                     mat =[]
                     for i in range(data["n_val"]):
                         e_row = request.form.get('ip_'+str(i))
-                        e_row = [int(s) for s in e_row.split(',')]
+                        e_row = [float(s) for s in e_row.split(',')]
                         mat.append(e_row)
                     import numpy as np
-                    data["det"] = np.linalg.det(mat)
+                    data["det"] = round(np.linalg.det(mat),2)
             except:
                 data["det"] = "Error, please check the input."        
         return render_template('Det_Matrix.html', data=data, gen_form=gen_form)
@@ -110,3 +110,56 @@ def det_mat():
 @app.route('/Fiber-Optic-Color-Code-Finder')
 def focc_finder():
     return render_template('Fiber-Optic-Color-Coder-Finder.html')
+    
+@app.route('/Online-Video-Splitter', methods=['GET','POST'])
+def vid_splitter():
+    from modules import VideoEditor
+    from werkzeug.utils import secure_filename
+    from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
+    
+    data = utils.pre_load("Online-Video-Editor","Online Video Splitter in Python","Online Video Splitter")
+    data['result'] = ""
+    data["file_download"] = ""
+    data["intervals"] = ""
+    vid_form = VideoEditor.VidForm()
+    if request.method == "POST":
+        if vid_form.file_download.data != "":
+            from flask import send_file
+            return send_file(os.path.join('../', str(vid_form.file_download.data)), as_attachment=True)
+            #os.remove(str(vid_form.file_download.data))
+
+        try:            
+            file = request.files['target_file']
+            data["intervals"] = vid_form.intervals.data
+            intervals = vid_form.intervals.data.split(",")
+            
+            filename = secure_filename(file.filename)
+            file.save(filename)
+                  
+            splits_files = []
+            
+            for interval in intervals:
+                start, end = interval.split(":")
+                file_path_op = filename.split(".")[0]+start+"-"+end+".mp4"
+                ffmpeg_extract_subclip(filename, int(start), int(end), targetname=file_path_op)
+                splits_files.append(file_path_op)
+                
+            file_path_zip =  filename.split(".")[0]+".zip"
+            import zipfile
+            with zipfile.ZipFile(file_path_zip, 'a') as myzip:
+                for each_path in splits_files:
+                    myzip.write(each_path)
+                    os.remove(each_path)
+            os.remove(filename)
+            data['result'] = "Split operation completed successfully. Please click the below button to download."
+            data["file_download"] = file_path_zip
+            return render_template('Video-Splitter.html', data=data, vid_form = vid_form)
+            
+        except  Exception as e:
+            print(e)
+            data["result"] = "Exception: "+str(e)
+            return render_template('Video-Splitter.html', data=data, vid_form = vid_form)
+
+    return render_template('Video-Splitter.html', data=data, vid_form = vid_form)
+
+    
