@@ -5,12 +5,12 @@
 	<p>This application will split your target video into different parts utilizing the defined intervals.</p>
 
 	<form method="post" enctype="multipart/form-data">
-	    	<div class="form-group col-sm-12">
+	    <div class="form-group col-sm-12">
 			<div class="row">
 				<div class="col-sm-12">
 					{{ vid_form.target_file.label }}
 					<br>
-					{{ vid_form.target_file(class_="btn btn-secondary") }}
+					{{ vid_form.target_file(class_="btn btn-secondary col-sm-4") }}
 					<br><br>
 					{{ vid_form.intervals.label }}
 					<input id="intervals" name="intervals" required type="text" value="{{ data.intervals }}" class="form-control">
@@ -26,9 +26,10 @@
 	{% if "successfully" in data.result %}
 	<div class="col-sm-12">
 		<p>Result: {{ data.result }}</p>
-		<br>
 		<input id="split_trigger" name="split_trigger" type="submit" value="Download" class="btn btn-primary">
+		<br>
 		{{ vid_form.file_download(value=data.file_download) }}
+		<br>
 	</div>
 	</form>
 		

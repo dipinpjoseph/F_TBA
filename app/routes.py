@@ -111,12 +111,15 @@ def det_mat():
 def focc_finder():
     return render_template('Fiber-Optic-Color-Coder-Finder.html')
     
-@app.route('/Online-Video-Splitter', methods=['GET','POST'])
+@app.route('/Online-Video-Editor', methods=['GET','POST'])
 def vid_splitter():
     from modules import VideoEditor
     from werkzeug.utils import secure_filename
     from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
+    import tempfile
     
+    tempdirectory = tempfile.gettempdir()    
+    print(str(tempdirectory))
     data = utils.pre_load("Online-Video-Editor","Online Video Splitter in Python","Online Video Splitter")
     data['result'] = ""
     data["file_download"] = ""
@@ -134,23 +137,24 @@ def vid_splitter():
             intervals = vid_form.intervals.data.split(",")
             
             filename = secure_filename(file.filename)
-            file.save(filename)
-                  
+            file.save(os.path.join(tempdirectory, filename))
+
+            #file.save(filename)                  
             splits_files = []
             
             for interval in intervals:
                 start, end = interval.split(":")
-                file_path_op = filename.split(".")[0]+start+"-"+end+".mp4"
-                ffmpeg_extract_subclip(filename, int(start), int(end), targetname=file_path_op)
+                file_path_op = os.path.join(tempdirectory, filename.split(".")[0]+start+"-"+end+".mp4")
+                ffmpeg_extract_subclip(os.path.join(tempdirectory,filename), int(start), int(end), targetname=file_path_op)
                 splits_files.append(file_path_op)
                 
-            file_path_zip =  filename.split(".")[0]+".zip"
+            file_path_zip =  os.path.join(tempdirectory, filename.split(".")[0]+".zip")
             import zipfile
-            with zipfile.ZipFile(file_path_zip, 'a') as myzip:
+            with zipfile.ZipFile(file_path_zip, 'w') as myzip:
                 for each_path in splits_files:
                     myzip.write(each_path)
                     os.remove(each_path)
-            os.remove(filename)
+            os.remove(os.path.join(tempdirectory,filename))
             data['result'] = "Split operation completed successfully. Please click the below button to download."
             data["file_download"] = file_path_zip
             return render_template('Video-Splitter.html', data=data, vid_form = vid_form)
