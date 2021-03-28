@@ -68,9 +68,9 @@ def el_gen(list_cat):
     con = E_List.query.filter_by(cat=list_cat)
     return render_template('EL_Template.html', data=utils.pre_load(list_cat, list_cat+" Tips, Errors and Solutions", list_cat+" - The Elite List"), con=con)
 
-@app.route('/Update-Elite-List', methods=['GET','POST'])
+@app.route('/UEL', methods=['GET','POST'])
 def update_elite_list():
-    cat = ['R','Linux', 'SQL', 'Python', 'VIM','Spark','Raspberry-Pi']
+    cat = ['R','Linux', 'SQL', 'Python', 'VIM','Spark','Raspberry-Pi','Java']
     data = utils.pre_load("Elite List Updation","Portal to update Elite List","Elite List Update")
     if request.method == "POST":
         cat = request.form.get('cat')
