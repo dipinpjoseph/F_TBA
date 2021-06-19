@@ -1,0 +1,120 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 13.2 (Ubuntu 13.2-1.pgdg18.04+1)
+-- Dumped by pg_dump version 13.2 (Ubuntu 13.2-1.pgdg18.04+1)
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: e_list; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.e_list (
+    id integer NOT NULL,
+    topic character varying(1000),
+    sol character varying(1000),
+    comment character varying(1000),
+    cat character varying(200),
+    votes integer
+);
+
+
+ALTER TABLE public.e_list OWNER TO postgres;
+
+--
+-- Name: e_list_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.e_list_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.e_list_id_seq OWNER TO postgres;
+
+--
+-- Name: e_list_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.e_list_id_seq OWNED BY public.e_list.id;
+
+
+--
+-- Name: e_list id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.e_list ALTER COLUMN id SET DEFAULT nextval('public.e_list_id_seq'::regclass);
+
+
+--
+-- Data for Name: e_list; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.e_list (id, topic, sol, comment, cat, votes) FROM stdin;
+1	Import table from .csv file in PostgreSQL using Pandas	import pandas as pd <br>df = pd.read_csv('table.csv') <br>df.columns = [c.lower() for c in df.columns] <br> <br>from sqlalchemy import create_engine <br>engine = create_engine('postgresql://user:pass@host:5432/db_name') <br> <br>df.to_sql("table_name", engine)	Source: https://stackoverflow.com/a/29722393	Python	0
+2	How to replace Column Value in SQL?\t	update table_name set column = 'newvalue' where column = 'some thing'	The command 'set' fills new value based on condition given in 'where'	SQL	0
+3	Create bootable USB using 'dd' command.	sudo dd bs=4M if=path/to/input.iso of=/dev/sd conv=fdatasync status=progress	Replace input file path and drive letter(sda/b/c). Use 'lsblk' if confused. <br>Source - https://askubuntu.com/a/377561	Linux	0
+4	Install .deb file in Linux.	sudo dpkg -i /path/a.deb	Use 'sudo apt install -f' for any missing dependencies. <br>Source - https://unix.stackexchange.com/a/159114	Linux	0
+5	Display the first few words of a file in Linux.	head -c 100 filename	Prints first 100 bytes of the file. <br>Source - https://unix.stackexchange.com/a/167816\t	Linux	0
+6	Display last few words of a file in Linux.	tail -c 100 filename\t	Prints last 100 bytes of the file. <br>Source - https://unix.stackexchange.com/a/167816\t	Linux	0
+7	Append words to the end of the file in Linux.	echo 'input' >> filename	Attachs the input to the file. <br>Source - https://www.cyberciti.biz/faq/linux-append-text-to-end-of-file/	Linux	0
+8	Insert text into the begining of a file in Linux.	sed -i '1s/^/abcde /' filename	Attachs the input to the file beginning. <br>Source - https://stackoverflow.com/a/9533736/6903724\t	Linux	0
+9	Search and Replace a word in the file using Python	# Read and save file content <br>with open('file.txt', 'r') as file : <br>&nbsp;&nbsp;&nbsp;&nbsp;filedata = file.read() <br>&nbsp;&nbsp;&nbsp;&nbsp;# Replace words with new ones. <br>&nbsp;&nbsp;&nbsp;&nbsp;filedata = filedata.replace('abc', 'def') <br># Overwrite the file with new contents <br>with open('file.txt', 'w') as file: <br>&nbsp;&nbsp;&nbsp;&nbsp;file.write(filedata)	Open and read the file and replace the necessary words. Later write modified content to the same file. <br>Source-https://stackoverflow.com/a/17141572/6903724	Python	0
+10	Install virtualenv for Python3\t	sudo apt-get install python3-pip <br>sudo pip3 install virtualenv <br>virtualenv -p python3 myenv <br>source venv/bin/activate	Source-https://gist.github.com/Geoyi/d9fab4f609e9f75941946be45000632b	Python	0
+11	Kill a linux process by its name.	kill -9 $(ps -ef | grep "name" | grep -o "[0-9]*" | head -1)	'ps -ef' will display all process, by using series of 'grep' and 'head' the PID of the corresponding process is obtained and later fed to kill command. 'kill -9' command cannot be blocked.	Linux	0
+12	How to change resolution of VNC server in Raspberry Pi using Terminal?\t	vncserver -randr=800x600	Next login onwards the resolution will be changed to 800x600.	Raspberry-Pi	0
+13	How to backup MySQL database?\t	mysqldump -u user_name -p db_name > backup.sql;\t	Executing this command will prompt for your mysql password and upon completion a backup file named 'backup.sql' will be generated. <br>Source - https://support.hostway.com/hc/en-us/articles/360000220190-How-to-backup-and-restore-MySQL-databases-on-Linux	SQL	0
+14	Unzip file using Python's zipfile.	# Unzip file - check.zip <br>import zipfile <br>with zipfile.ZipFile("check.zip","r") as zip_ref: <br>&nbsp;&nbsp;&nbsp;&nbsp;zip_ref.extractall("check_data")	Import package 'zipfile' which has most archive related functionalities. Open the .zip file in readable format and perform extraction with extractall() specifying output directory name. <br>Source - https://stackoverflow.com/questions/3451111/unzipping-files-in-python	Python	0
+15	Delete SQL table rows based on column values.	DELETE FROM tbl WHERE col="val";	This command will remove all rows satisfying condition - 'col' column containing value 'val'. <br>Source - https://www.w3schools.com/sql/sql_delete.asp	SQL	0
+16	Filter rows by column value in PySpark.	# Showing non-empty rows; <br>df.where(F.col("col_name").like("% %") == False).show()	Filtering out rows with column value spaces(" ").\t	Spark	0
+17	Create new column in Spark Dataframe from existing column using withColumn method.	df = df.withColumn('new_col', df.old_col[1:2])	A new column 'new_col' is added to dataframe 'df' containing first two characters of column 'old_col'.	Spark	0
+18	Groupby and aggregate example in PySpark.	df.groupby("col").agg(F.min('agg_col').alias('agg')).orderBy('col', ascending=True)	Here, rows in 'df' are grouped by 'col' column values and minimum value of 'agg_col' is found out for each group.	Spark	0
+19	Save Spark Dataframe as Apache Parquet storage in HDFS.	df.write.parquet("hdfs:///user/abc123/outputs/df.parquet")	Above statement will save dataframe 'df' to given HDFS location in parquet format.	Spark	0
+20	Load Fixed Width Text file as Dataframe in PySpark.	df = spark.read.text("hdfs:///path/to/dir") <br>df = df.select( df.value.substr(1,2).alias('ID'), df.value.substr(4,57).alias('NAME') )	Using 'spark.read' the file is loaded as undefined Spark Dataframe . Later using substr() data is split and assigned to two columns. (4,57) implies 57 characters starting from 4th position.	Spark	0
+21	Train and Test split in R\t	# Males - Dataset <br># 70% of the sample size <br>smp_size <- floor(0.7 * nrow(Males)) <br># Train and Test Split <br>train_int <- sample(seq_len(nrow(Males)), size = smp_size) <br># 70% training data <br>tr <- Males[train_int, ] <br># 30% test data  <br>te <- Males[-train_int, ]	First, Get the number of rows of dataset and randomly spit to required ratio(0.7 here). Then create two dataframes using extracted row numbers.	R	0
+23	Scatter Plot with custom hover text in Plotly | R\t	# Males - Dataset <br>h_dat = paste("Obs No :", rownames(Males)) <br>sc <- plot_ly( data = Males, x = ~school, y = ~exper, hover_data = 'text', text = h_dat ) <br>layout( sc, yaxis = list(title = "school"), xaxis = list(title = "exper") )	Just specify columns for x and y axis. The output figure is available at <a href="https://photos.app.goo.gl/SJaWnDcoFbwN3bqH9">Scatter Plot</a>	R	0
+22	Generate Density Plot in Plotly | R	de_b <- density(Males$exper) <br>de_b <- data.frame(x = de_b$x, y = de_b$y) <br>before <- plot_ly(data = de_b, x = ~ x, y = ~ y) <br>layout(add_lines(before), title = "Density plot of non-transformed variable")	Density of the variable was found by density() method and fed data to plotly line graph. Output is avaliable at <a href="https://photos.app.goo.gl/7m7BzPFkFzRHY9xk6">Density Plot</a>	R	0
+56	Error in loadNamespace(name) : there is no package called ‘prettydoc’	Update all existing packages and start a new R session. Then install specified package (prettydoc in the current scene).	The issue is with installations messed up in Rstudio IDE.	R	0
+57	Cron job at random time	* */6 * * * sleep $[ ( $RANDOM % 60 ) + 1 ]m; /path-to-script	This cron job will run every 6 hours but is delayed by random minutes.	Linux	0
+58	Less secure app issue - GMail, Geary	Follow the link - https://www.google.com/settings/security/lesssecureapps <br> Toggle button for 'Allow less secure apps'	By default Google blocks Geary integration for certain reasons.	Linux	0
+\.
+
+
+--
+-- Name: e_list_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.e_list_id_seq', 58, true);
+
+
+--
+-- Name: e_list e_list_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.e_list
+    ADD CONSTRAINT e_list_pkey PRIMARY KEY (id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+
